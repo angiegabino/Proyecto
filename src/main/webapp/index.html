@@ -1,0 +1,54 @@
+
+<html>
+    <head>
+        <title>Horoscopos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div id="zodiaco">
+            <h1>Horoscopos</h1>
+            <h3>Selecciona tu signo zodiacal</h3>
+            <select name="signo" id="signo">
+                <option>Aries</option>
+                <option>Tauro</option>
+                <option>Geminis</option>
+                <option>Cancer</option>
+                <option>Leo</option>
+                <option>Virgo</option>
+                <option>Libra</option>
+                <option>Escorpio</option>
+                <option>Sagitario</option>
+                <option>Capricornio</option>
+                <option>Acuario</option>
+                <option>Picis</option>
+            </select>
+            <br>
+            <input id="boton" type="submit" class="btn" value="Enviar">
+            <div id="resultado">
+                
+            </div>
+           </div>
+     
+   <script>
+            $(document).ready(function(){
+             $("#boton").click(function(){
+                $.ajax({
+                    data:{
+                        'signo':$("#signo").val()
+                    },
+                    method:'get',
+                    url:'horoscopo',
+                    success:function(res){
+                         $("#resultado").html(res);  
+                    }
+                });
+              
+             });
+            });
+        </script>    
+    </body>
+</html>
